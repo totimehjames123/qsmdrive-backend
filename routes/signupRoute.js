@@ -13,7 +13,7 @@ const signupRoute = async (req, res) => {
                 const addUser = await usersCollection.insertMany(
                     {username: username, email: email, password: hashedPassword}
                 )
-            
+             
                 if (addUser){
                     res.status(200).json({ message: "User created successfully!", status: 200});
                 }

@@ -4,7 +4,7 @@ const multer = require("multer")
 const bodyParser = require("body-parser")
 
 // Import MongoDB connection
-require("./config", { serverSelectionTimeoutMS: 30000 })
+const connection = require("./config")
 
 //Import routes
 const signupRoute = require("./routes/signupRoute")
