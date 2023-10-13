@@ -1,31 +1,30 @@
 const express = require("express")
 const cors = require("cors")
 const multer = require("multer")
-const bcrypt = require("bcrypt")
+const bodyParser = require("body-parser")
 
 // Import MongoDB connection
 require("./config")
 
-// Import all modules
-const usersCollection = require("./models/users")
+//Import routes
+const signupRoute = require("./routes/signupRoute")
+const loginRoute = require("./routes/loginRoute")
 
 const app = express()
-//Home route
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true }))
+
+//ALL ROUTES
+
 app.get("/", (req, res) => {
     res.send("welcome to qsm ride")
 })
 
 //Login route
-app.post("/login", async (req, res) => {
-    res.send("Hello world")
-})
+app.post("/login", loginRoute)
 
 //Signup route (name, email)
-app.post("/signup", async (req, res) => {
-    const {username, email} = req.body;
-
-    res.send(username, email);
-})
+app.post("/signup", signupRoute)
 
 //Update password
 app.post("/setPassword", (req, res) => {
