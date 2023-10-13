@@ -18,7 +18,7 @@ app.post("/login", (req, res) => {
 app.post("/signup", (req, res) => {
     bcrypt.hash("psd", 10, (err, hash) => {
         if (err) console.error(err)
-        else console.log("Great")
+        else console.log("Great: ", hash)
     })
     res.send("Hi signup");
 })
