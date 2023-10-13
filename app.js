@@ -4,6 +4,10 @@ const multer = require("multer")
 const bcrypt = require("bcrypt")
 
 const app = express()
+//Home route
+app.get("/", (req, res) => {
+    res.send("welcome to qsm ride")
+})
 
 //Login route
 app.post("/login", (req, res) => {
