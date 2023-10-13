@@ -15,10 +15,10 @@ const signupRoute = async (req, res) => {
                 )
             
                 if (addUser){
-                    res.status(400).json({ message: "User created successfully!", status: 200});
+                    res.status(200).json({ message: "User created successfully!", status: 200});
                 }
                 else{
-                    res.status(200).json({ message: "Failed to create user!", status: 400});
+                    res.status(400).json({ message: "Failed to create user!", status: 400});
                 }
             }
         })
