@@ -9,16 +9,16 @@ try{
     const isUserExists = await usersCollection.findOne({email: email})
 
     if (!isUserExists){
-        res.status(404).json({message: "User not found!"})
+        res.send({message: "User not found!", status: 404})
     }
     else{
         const isValidPassword = await bcrypt.compare(password, isUserExists.password)
 
         if (isValidPassword){
-            res.status(200).json({message: "Logged in successfully!"})
+            res.send({message: "Logged in successfully!", status: 200})
         }
         else{
-            res.status(200).json({message: "Invalid password!"})
+            res.send({message: "Invalid password!", status: 400})
         }
     }
 
