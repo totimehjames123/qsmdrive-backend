@@ -24,7 +24,7 @@ const signupRoute = async (req, res) => {
         })
     }
     else{
-        res.send({message: "User already exists", status: 409})
+        res.status(409).json({message: "User already exists", status: 409})
     }
 }
 
